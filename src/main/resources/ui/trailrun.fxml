@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="675.0" prefWidth="1002.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+  <children>
+    <MenuBar VBox.vgrow="NEVER">
+      <menus>
+        <Menu mnemonicParsing="false" text="File">
+          <items>
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Preferences…" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" onAction="#importar" text="Importar" />
+                  <MenuItem fx:id="exportar" mnemonicParsing="false" text="Exportar" />
+            <MenuItem mnemonicParsing="false" text="Quit" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Edit">
+          <items>
+            <MenuItem mnemonicParsing="false" text="Undo" />
+            <MenuItem mnemonicParsing="false" text="Redo" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Cut" />
+            <MenuItem mnemonicParsing="false" text="Copy" />
+            <MenuItem mnemonicParsing="false" text="Paste" />
+            <MenuItem mnemonicParsing="false" text="Delete" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Select All" />
+            <MenuItem mnemonicParsing="false" text="Unselect All" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Help">
+          <items>
+            <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="608.0" prefWidth="1002.0" VBox.vgrow="ALWAYS">
+      <children>
+            <Label layoutX="52.0" layoutY="24.0" text="TRAIL RUNNING">
+               <font>
+                  <Font name="Adventure Normal" size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="37.0" layoutY="70.0" text="Nombre">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="38.0" layoutY="113.0" prefHeight="17.0" prefWidth="44.0" text="Lugar">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="38.0" layoutY="157.0" text="Fecha">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="38.0" layoutY="204.0" text="Distacia">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="38.0" layoutY="298.0" prefHeight="17.0" prefWidth="28.0" text="Tipo">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="cbTipo" layoutX="102.0" layoutY="295.0" prefHeight="25.0" prefWidth="150.0" />
+            <TextField fx:id="tfNombre" layoutX="103.0" layoutY="67.0" prefHeight="25.0" prefWidth="149.0" />
+            <TextField fx:id="tfDesnivel" layoutX="102.0" layoutY="247.0" prefHeight="25.0" prefWidth="98.0" />
+            <TextField fx:id="tfDistancia" layoutX="102.0" layoutY="200.0" prefHeight="25.0" prefWidth="98.0" />
+            <TextField fx:id="tfLugar" layoutX="102.0" layoutY="109.0" prefHeight="25.0" prefWidth="150.0" />
+            <Label layoutX="38.0" layoutY="251.0" text="Desnivel">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <TableView fx:id="tvRaces" layoutX="359.0" layoutY="35.0" onMouseClicked="#getDatosTabla" prefHeight="284.0" prefWidth="615.0">
+              <columns>
+                <TableColumn fx:id="tcNombre" prefWidth="98.0" text="Nombre" />
+                <TableColumn fx:id="tcLugar" prefWidth="98.0" text="Lugar" />
+                  <TableColumn fx:id="tcFecha" prefWidth="116.0" text="Fecha" />
+                  <TableColumn fx:id="tcDistancia" prefWidth="102.0" text="Distancia" />
+                  <TableColumn fx:id="tcDesnivel" prefWidth="96.0" text="Desnivel" />
+                  <TableColumn fx:id="tcTipo" prefWidth="104.0" text="Tipo" />
+              </columns>
+            </TableView>
+            <Button layoutX="22.0" layoutY="354.0" mnemonicParsing="false" onAction="#nuevo" prefHeight="25.0" prefWidth="67.0" text="Nuevo">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button layoutX="101.0" layoutY="354.0" mnemonicParsing="false" onAction="#guardar" prefHeight="25.0" prefWidth="67.0" text="Guardar">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button layoutX="181.0" layoutY="354.0" mnemonicParsing="false" onAction="#modificar" text="Modificar">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button layoutX="262.0" layoutY="354.0" mnemonicParsing="false" onAction="#eliminar" prefHeight="25.0" prefWidth="67.0" text="Eliminar">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Label layoutX="34.0" layoutY="470.0" prefHeight="19.0" prefWidth="119.0" text="Filtro de Busqueda">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <RadioButton fx:id="rbLugar" layoutX="26.0" layoutY="503.0" mnemonicParsing="false" text="Lugar">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </RadioButton>
+            <RadioButton fx:id="rbDistancia" layoutX="25.0" layoutY="540.0" mnemonicParsing="false" text="Distancia">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </RadioButton>
+            <TextField fx:id="tfFiltroLugar" layoutX="129.0" layoutY="500.0" />
+            <ComboBox fx:id="cbFiltroDistancia" layoutX="128.0" layoutY="537.0" prefWidth="150.0" />
+            <Label layoutX="203.0" layoutY="205.0" text="Metros">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="203.0" layoutY="251.0" text="Metros">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font>
+            </Label>
+            <Button layoutX="34.0" layoutY="586.0" mnemonicParsing="false" onAction="#filtrar" text="Filtrar">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Label fx:id="lAviso" layoutX="359.0" layoutY="325.0" prefHeight="22.0" prefWidth="366.0" />
+            <Button layoutX="85.0" layoutY="392.0" mnemonicParsing="false" onAction="#reset" prefHeight="25.0" prefWidth="80.0" text="Reset">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button layoutX="189.0" layoutY="392.0" mnemonicParsing="false" onAction="#cancelar" prefHeight="25.0" prefWidth="80.0" text="Cancelar">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <TextField fx:id="tfFecha" layoutX="103.0" layoutY="154.0" />
+      </children>
+    </AnchorPane>
+  </children>
+</VBox>
