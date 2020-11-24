@@ -3,6 +3,7 @@ package com.sanvalero.trailrun;
 import com.sanvalero.trailrun.dao.RaceDAO;
 import com.sanvalero.trailrun.domain.Race;
 import com.sanvalero.trailrun.util.AlertUtils;
+import com.sun.jdi.IntegerValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -103,7 +104,7 @@ public class AppController implements Initializable {
         tfFecha.setText(tvRaces.getSelectionModel().selectedItemProperty().getValue().getFecha());
         tfDistancia.setText(String.valueOf(tvRaces.getSelectionModel().selectedItemProperty().getValue().getDistancia()));
         tfDesnivel.setText(String.valueOf(tvRaces.getSelectionModel().selectedItemProperty().getValue().getDesnivel()));
-        cbTipo.setValue(String.valueOf(tvRaces.getSelectionModel().selectedItemProperty().getValue().getTipo()));
+        cbTipo.setValue(tvRaces.getSelectionModel().selectedItemProperty().getValue().getTipo());
     }
 
     @FXML
@@ -114,19 +115,58 @@ public class AppController implements Initializable {
 
     @FXML
     public void guardar(Event event) {
+        try {
+            String nombre = tfNombre.getText();
+            String lugar = tfLugar.getText();
+            String fecha = tfFecha.getText();
+            int distancia = Integer.parseInt(tfDistancia.getText());
+            int desnivel = Integer.parseInt(tfDesnivel.getText());
+            String tipo = cbTipo.getValue();
+            Race race = new Race(nombre, lugar, fecha, distancia, desnivel, tipo);
 
+            raceDAO.guardarRace(race);
+            lAviso.setText("Registro guardado");
+            listarRaces();
+        } catch (SQLException sql) {
+            AlertUtils.mostrarError("Error al guardar datos");
+        }
 
     }
 
     @FXML
     public void modificar(Event event) {
+        try {
+            String nombreViejo = tvRaces.getSelectionModel().selectedItemProperty().getValue().getNombre();
+            String nombre = tfNombre.getText();
+            String lugar = tfLugar.getText();
+            String fecha = tfFecha.getText();
+            int distancia = Integer.parseInt(tfDistancia.getText());
+            int desnivel = Integer.parseInt(tfDesnivel.getText());
+            String tipo = cbTipo.getValue();
 
+            Race race = new Race(nombreViejo, nombre, lugar, fecha, distancia, desnivel, tipo);
+
+            raceDAO.modificarRace(race);
+            lAviso.setText("Registro modificado");
+            listarRaces();;
+        } catch (SQLException sql) {
+            AlertUtils.mostrarError("Error al modificar");
+        }
 
     }
 
     @FXML
     public void eliminar(Event event) {
+        try {
+            String nombre = tfNombre.getText();
+            Race race = new Race(nombre);
 
+            raceDAO.eliminarRace(race);
+            lAviso.setText("Registro eliminado");
+            listarRaces();
+        } catch(SQLException sql) {
+            AlertUtils.mostrarError("Error al eliminar");
+        }
 
     }
 
@@ -164,7 +204,7 @@ public class AppController implements Initializable {
 
         tcNombre.setCellValueFactory(new PropertyValueFactory<Race, String>("nombre"));
         tcLugar.setCellValueFactory(new PropertyValueFactory<Race, String>("lugar"));
-        tcFecha.setCellValueFactory(new PropertyValueFactory<Race, String>("Fecha"));
+        tcFecha.setCellValueFactory(new PropertyValueFactory<Race, String>("fecha"));
         tcDistancia.setCellValueFactory(new PropertyValueFactory<Race, Integer>("distancia"));
         tcDesnivel.setCellValueFactory(new PropertyValueFactory<Race, Integer>("desnivel"));
         tcTipo.setCellValueFactory(new PropertyValueFactory<Race, String>("tipo"));

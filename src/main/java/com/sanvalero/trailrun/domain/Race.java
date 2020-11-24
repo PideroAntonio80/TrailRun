@@ -47,6 +47,10 @@ public class Race {
         this.tipo = tipo;
     }
 
+    public Race(String nombre) {
+        this.nombre = nombre;
+    }
+
     public int getId() {
         return id;
     }

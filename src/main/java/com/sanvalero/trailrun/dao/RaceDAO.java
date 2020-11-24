@@ -64,6 +64,7 @@ public class RaceDAO extends BaseDAO{
 
     public List<Race> listarRaces() throws SQLException {
         String sql = "SELECT * FROM races";
+
         Statement sentencia = conexion.createStatement();
         ResultSet resultado = sentencia.executeQuery(sql);
 
