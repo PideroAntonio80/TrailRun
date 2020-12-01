@@ -17,6 +17,8 @@ public class Race {
      private int desnivel;
      private String tipo;
      private String nombreViejo;
+     private String lugarViejo;
+     private String fechaVieja;
 
     public Race(int id, String nombre, String lugar, String fecha, int distancia, int desnivel, String tipo) {
         this.id = id;
@@ -37,8 +39,10 @@ public class Race {
         this.tipo = tipo;
     }
 
-    public Race(String nombreViejo, String nombre, String lugar, String fecha, int distancia, int desnivel, String tipo) {
+    public Race(String nombreViejo, String lugarViejo, String fechaVieja, String nombre, String lugar, String fecha, int distancia, int desnivel, String tipo) {
         this.nombreViejo = nombreViejo;
+        this.lugarViejo = lugarViejo;
+        this.fechaVieja = fechaVieja;
         this.nombre = nombre;
         this.lugar = lugar;
         this.fecha = fecha;
@@ -114,4 +118,21 @@ public class Race {
     public void setNombreViejo(String nombreViejo) {
         this.nombreViejo = nombreViejo;
     }
+
+    public String getLugarViejo() {
+        return lugarViejo;
+    }
+
+    public void setLugarViejo(String lugarViejo) {
+        this.lugarViejo = lugarViejo;
+    }
+
+    public String getFechaVieja() {
+        return fechaVieja;
+    }
+
+    public void setFechaVieja(String fechaVieja) {
+        this.fechaVieja = fechaVieja;
+    }
+
 }

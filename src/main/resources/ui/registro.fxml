@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="485.0" prefWidth="765.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+  <children>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="343.0" prefWidth="579.0" VBox.vgrow="ALWAYS">
+      <children>
+            <Label layoutX="20.0" layoutY="175.0" text="Usuario">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="20.0" layoutY="229.0" text="Password">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <TextField fx:id="tfUsuario" layoutX="83.0" layoutY="171.0" prefHeight="25.0" prefWidth="243.0" />
+            <TextField fx:id="tfPassword" layoutX="83.0" layoutY="225.0" prefHeight="25.0" prefWidth="243.0" />
+            <Button layoutX="157.0" layoutY="288.0" mnemonicParsing="false" onAction="#iniciar" text="Iniciar">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Label layoutX="139.0" layoutY="74.0" text="INICIAR SESIÓN">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="434.0" layoutY="176.0" text="Usuario">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <TextField fx:id="tfUsuarioRegistro" layoutX="497.0" layoutY="172.0" prefHeight="25.0" prefWidth="243.0" />
+            <Label layoutX="558.0" layoutY="74.0" text="REGISTRARSE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="434.0" layoutY="231.0" text="Nombre">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <TextField fx:id="tfNombreRegistro" layoutX="497.0" layoutY="227.0" prefHeight="25.0" prefWidth="243.0" />
+            <Label layoutX="434.0" layoutY="288.0" text="Email">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <TextField fx:id="tfEmailRegistro" layoutX="497.0" layoutY="284.0" prefHeight="25.0" prefWidth="243.0" />
+              <Label layoutX="434.0" layoutY="346.0" text="Password">
+                  <font>
+                      <Font name="System Bold" size="12.0" />
+                  </font>
+              </Label>
+          <TextField fx:id="tfPasswordRegistro" layoutX="497.0" layoutY="342.0" prefHeight="25.0" prefWidth="243.0" />
+            <Button layoutX="571.0" layoutY="405.0" mnemonicParsing="false" onAction="#enviar" text="Enviar">
+                <font>
+                    <Font name="System Bold" size="12.0" />
+                </font>
+            </Button>
+            <Line endX="-0.5" endY="350.0" layoutX="383.0" layoutY="135.0" startX="-0.5" startY="-135.0" />
+            <Label fx:id="lConfirmacionRegistro" layoutX="434.0" layoutY="447.0" prefHeight="25.0" prefWidth="305.0" />
+      </children>
+    </AnchorPane>
+  </children>
+</VBox>

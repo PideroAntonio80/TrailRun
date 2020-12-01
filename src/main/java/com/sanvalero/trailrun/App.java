@@ -1,6 +1,7 @@
 package com.sanvalero.trailrun;
 
 import javafx.application.Application;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
@@ -22,14 +23,24 @@ public class App extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-        FXMLLoader loader = new FXMLLoader();
+        /*FXMLLoader loader = new FXMLLoader();
         loader.setLocation(R.getUI("trailrun.fxml"));
         loader.setController(new AppController());
         VBox vbox = loader.load();
 
         Scene scene = new Scene(vbox);
         primaryStage.setScene(scene);
+        primaryStage.show();*/
+
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(R.getUI("registro.fxml"));
+        loader.setController(new InicioRegistroController());
+        VBox vbox = loader.load();
+
+        Scene scene = new Scene(vbox);
+        primaryStage.setScene(scene);
         primaryStage.show();
+
     }
 
     @Override
