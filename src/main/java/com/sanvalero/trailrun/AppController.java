@@ -344,3 +344,11 @@ public class AppController implements Initializable {
     }
 
 }
+
+/*--------------------------------TODO TAREAS PENDIENTES---------------------------------*/
+// Todo Mostrar Alerts de confirmación
+// Todo Habilitar/Deshabilitar botones según proceda
+// Todo Metodo para Eliminar todos los registros.
+// Todo Pulir el formato csv del metodo Exportar para que se separe con punto y coma
+// Todo Hacer fechas tipo Date y utilizar DatePicker en vez de TextField de fecha
+// Todo Revisión general
