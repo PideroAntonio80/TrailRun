@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.sql.Date;
 
 /**
  * Creado por @ author: Pedro Orós
@@ -23,7 +24,7 @@ public class RaceDAO extends BaseDAO{
 
         sentencia.setString(1, race.getNombre());
         sentencia.setString(2, race.getLugar());
-        sentencia.setString(3, race.getFecha());
+        sentencia.setDate(3, race.getFecha());
         sentencia.setInt(4, race.getDistancia());
         sentencia.setInt(5, race.getDesnivel());
         sentencia.setString(6, race.getTipo());
@@ -40,13 +41,13 @@ public class RaceDAO extends BaseDAO{
 
         sentencia.setString(1, race.getNombre());
         sentencia.setString(2, race.getLugar());
-        sentencia.setString(3, race.getFecha());
+        sentencia.setDate(3, race.getFecha());
         sentencia.setInt(4, race.getDistancia());
         sentencia.setInt(5, race.getDesnivel());
         sentencia.setString(6, race.getTipo());
         sentencia.setString(7, race.getNombreViejo());
         sentencia.setString(8, race.getLugarViejo());
-        sentencia.setString(9, race.getFechaVieja());
+        sentencia.setDate(9, race.getFechaVieja());
 
         sentencia.executeUpdate();
 
@@ -76,7 +77,7 @@ public class RaceDAO extends BaseDAO{
             Race race = new Race(
                     resultado.getString(2),
                     resultado.getString(3),
-                    resultado.getString(4),
+                    resultado.getDate(4),
                     resultado.getInt(5),
                     resultado.getInt(6),
                     resultado.getString(7)
@@ -100,7 +101,7 @@ public class RaceDAO extends BaseDAO{
             Race race = new Race(
                     resultado.getString(2),
                     resultado.getString(3),
-                    resultado.getString(4),
+                    resultado.getDate(4),
                     resultado.getInt(5),
                     resultado.getInt(6),
                     resultado.getString(7)
@@ -136,7 +137,7 @@ public class RaceDAO extends BaseDAO{
             Race race = new Race(
                     resultado.getString(2),
                     resultado.getString(3),
-                    resultado.getString(4),
+                    resultado.getDate(4),
                     resultado.getInt(5),
                     resultado.getInt(6),
                     resultado.getString(7)
@@ -173,7 +174,7 @@ public class RaceDAO extends BaseDAO{
             Race race = new Race(
                     resultado.getString(2),
                     resultado.getString(3),
-                    resultado.getString(4),
+                    resultado.getDate(4),
                     resultado.getInt(5),
                     resultado.getInt(6),
                     resultado.getString(7)

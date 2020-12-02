@@ -21,7 +21,9 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Date;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -37,7 +39,7 @@ public class AppController implements Initializable {
 
     public TextField tfNombre;
     public TextField tfLugar;
-    public TextField tfFecha;
+    public DatePicker dpFecha;
     public TextField tfDistancia;
     public TextField tfDesnivel;
     public ComboBox<String> cbTipo;
@@ -50,7 +52,7 @@ public class AppController implements Initializable {
     public TableView<Race> tvRaces;
     public TableColumn<Race, String> tcNombre;
     public TableColumn<Race, String> tcLugar;
-    public TableColumn<Race, String> tcFecha;
+    public TableColumn<Race, Date> tcFecha;
     public TableColumn<Race, Integer> tcDistancia;
     public TableColumn<Race, Integer> tcDesnivel;
     public TableColumn<Race, String> tcTipo;
@@ -110,7 +112,7 @@ public class AppController implements Initializable {
     public void getDatosTabla() {
         tfNombre.setText(tvRaces.getSelectionModel().selectedItemProperty().getValue().getNombre());
         tfLugar.setText(tvRaces.getSelectionModel().selectedItemProperty().getValue().getLugar());
-        tfFecha.setText(tvRaces.getSelectionModel().selectedItemProperty().getValue().getFecha());
+        dpFecha.setValue(tvRaces.getSelectionModel().selectedItemProperty().getValue().getFecha().toLocalDate());
         tfDistancia.setText(String.valueOf(tvRaces.getSelectionModel().selectedItemProperty().getValue().getDistancia()));
         tfDesnivel.setText(String.valueOf(tvRaces.getSelectionModel().selectedItemProperty().getValue().getDesnivel()));
         cbTipo.setValue(tvRaces.getSelectionModel().selectedItemProperty().getValue().getTipo());
@@ -127,7 +129,7 @@ public class AppController implements Initializable {
         try {
             String nombre = tfNombre.getText();
             String lugar = tfLugar.getText();
-            String fecha = tfFecha.getText();
+            Date fecha = Date.valueOf(dpFecha.getValue());
             int distancia = Integer.parseInt(tfDistancia.getText());
             int desnivel = Integer.parseInt(tfDesnivel.getText());
             String tipo = cbTipo.getValue();
@@ -147,10 +149,10 @@ public class AppController implements Initializable {
         try {
             String nombreViejo = tvRaces.getSelectionModel().selectedItemProperty().getValue().getNombre();
             String lugarViejo = tvRaces.getSelectionModel().selectedItemProperty().getValue().getLugar();
-            String fechaVieja = tvRaces.getSelectionModel().selectedItemProperty().getValue().getFecha();
+            Date fechaVieja = tvRaces.getSelectionModel().selectedItemProperty().getValue().getFecha();
             String nombre = tfNombre.getText();
             String lugar = tfLugar.getText();
-            String fecha = tfFecha.getText();
+            Date fecha = Date.valueOf(dpFecha.getValue());
             int distancia = Integer.parseInt(tfDistancia.getText());
             int desnivel = Integer.parseInt(tfDesnivel.getText());
             String tipo = cbTipo.getValue();
@@ -171,7 +173,7 @@ public class AppController implements Initializable {
         try {
             String nombre = tfNombre.getText();
             String lugar = tfLugar.getText();
-            String fecha = tfFecha.getText();
+            Date fecha = Date.valueOf(dpFecha.getValue());
             int distancia = Integer.parseInt(tfDistancia.getText());
             int desnivel = Integer.parseInt(tfDesnivel.getText());
             String tipo = cbTipo.getValue();
@@ -272,11 +274,11 @@ public class AppController implements Initializable {
             File fichero = fileChooser.showSaveDialog(null);
             FileWriter fileWriter = new FileWriter(fichero);
 
-            CSVPrinter printer = new CSVPrinter(fileWriter, CSVFormat.DEFAULT.withHeader("Id", "Nombre", "Lugar", "Fecha", "Distancia","Desnivel", "Tipo"));
+            CSVPrinter printer = new CSVPrinter(fileWriter, CSVFormat.TDF.withHeader("Nombre;", "Lugar;", "Fecha;", "Distancia;","Desnivel;", "Tipo;"));
 
             List<Race> races = raceDAO.listarRaces();
             for (Race race : races) {
-                printer.printRecord(race.getId(), race.getNombre(), race.getLugar(), race.getFecha(), race.getDistancia(), race.getDesnivel(), race.getTipo());
+                printer.printRecord(race.getNombre(), ';', race.getLugar(), ';', race.getFecha(), ';', race.getDistancia(), ';', race.getDesnivel(), ';', race.getTipo());
             }
             printer.close();
             lAviso.setText("Datos transferidos a su fichero");
@@ -321,16 +323,17 @@ public class AppController implements Initializable {
 
         tcNombre.setCellValueFactory(new PropertyValueFactory<Race, String>("nombre"));
         tcLugar.setCellValueFactory(new PropertyValueFactory<Race, String>("lugar"));
-        tcFecha.setCellValueFactory(new PropertyValueFactory<Race, String>("fecha"));
+        tcFecha.setCellValueFactory(new PropertyValueFactory<Race, Date>("fecha"));
         tcDistancia.setCellValueFactory(new PropertyValueFactory<Race, Integer>("distancia"));
         tcDesnivel.setCellValueFactory(new PropertyValueFactory<Race, Integer>("desnivel"));
         tcTipo.setCellValueFactory(new PropertyValueFactory<Race, String>("tipo"));
     }
 
+
     private void limpiaCajas() {
         tfNombre.setText("");
         tfLugar.setText("");
-        tfFecha.setText("");
+        dpFecha.setValue(null);
         tfDistancia.setText("");
         tfDesnivel.setText("");
         cbTipo.setValue("<Selecciona Tipo>");
@@ -349,6 +352,4 @@ public class AppController implements Initializable {
 // Todo Mostrar Alerts de confirmación
 // Todo Habilitar/Deshabilitar botones según proceda
 // Todo Metodo para Eliminar todos los registros.
-// Todo Pulir el formato csv del metodo Exportar para que se separe con punto y coma
-// Todo Hacer fechas tipo Date y utilizar DatePicker en vez de TextField de fecha
 // Todo Revisión general

@@ -3,6 +3,7 @@ package com.sanvalero.trailrun.domain;
 import javafx.scene.control.TextField;
 
 import java.sql.Date;
+import java.time.LocalDate;
 
 /**
  * Creado por @ author: Pedro Orós
@@ -12,15 +13,15 @@ public class Race {
      private int id;
      private String nombre;
      private String lugar;
-     private String fecha;
+     private Date fecha;
      private int distancia;
      private int desnivel;
      private String tipo;
      private String nombreViejo;
      private String lugarViejo;
-     private String fechaVieja;
+     private Date fechaVieja;
 
-    public Race(int id, String nombre, String lugar, String fecha, int distancia, int desnivel, String tipo) {
+    public Race(int id, String nombre, String lugar, Date fecha, int distancia, int desnivel, String tipo) {
         this.id = id;
         this.nombre = nombre;
         this.lugar = lugar;
@@ -30,7 +31,7 @@ public class Race {
         this.tipo = tipo;
     }
 
-    public Race(String nombre, String lugar, String fecha, int distancia, int desnivel, String tipo) {
+    public Race(String nombre, String lugar, Date fecha, int distancia, int desnivel, String tipo) {
         this.nombre = nombre;
         this.lugar = lugar;
         this.fecha = fecha;
@@ -39,7 +40,7 @@ public class Race {
         this.tipo = tipo;
     }
 
-    public Race(String nombreViejo, String lugarViejo, String fechaVieja, String nombre, String lugar, String fecha, int distancia, int desnivel, String tipo) {
+    public Race(String nombreViejo, String lugarViejo, Date fechaVieja, String nombre, String lugar, Date fecha, int distancia, int desnivel, String tipo) {
         this.nombreViejo = nombreViejo;
         this.lugarViejo = lugarViejo;
         this.fechaVieja = fechaVieja;
@@ -79,11 +80,11 @@ public class Race {
         this.lugar = lugar;
     }
 
-    public String getFecha() {
+    public Date getFecha() {
         return fecha;
     }
 
-    public void setFecha(String fecha) {
+    public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
 
@@ -127,11 +128,11 @@ public class Race {
         this.lugarViejo = lugarViejo;
     }
 
-    public String getFechaVieja() {
+    public Date getFechaVieja() {
         return fechaVieja;
     }
 
-    public void setFechaVieja(String fechaVieja) {
+    public void setFechaVieja(Date fechaVieja) {
         this.fechaVieja = fechaVieja;
     }
 

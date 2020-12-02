@@ -1,20 +1,19 @@
 package com.sanvalero.trailrun;
 
-import com.sanvalero.trailrun.dao.RaceDAO;
 import com.sanvalero.trailrun.dao.InicioDAO;
 import com.sanvalero.trailrun.domain.Usuario;
 import com.sanvalero.trailrun.util.AlertUtils;
 import com.sanvalero.trailrun.util.R;
-import javafx.event.Event;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -44,7 +43,7 @@ public class InicioRegistroController {
     }
 
     @FXML
-    public void iniciar(Event event) {
+    public void iniciar(ActionEvent event) {
         int opcion = 0;
         String usuario = tfUsuario.getText();
         String password = tfPassword.getText();
@@ -62,6 +61,8 @@ public class InicioRegistroController {
                 appStage.setScene(scene);
                 appStage.show();
 
+                cerrarVentana(event);
+
             }
             else {
                 AlertUtils.mostrarError("Usuario y/o password incorrectos");
@@ -74,7 +75,7 @@ public class InicioRegistroController {
     }
 
     @FXML
-    public void enviar(Event event) {
+    public void enviar(ActionEvent event) {
 
         String usuario = tfUsuarioRegistro.getText();
         String nombre = tfNombreRegistro.getText();
@@ -92,6 +93,12 @@ public class InicioRegistroController {
         } catch (SQLException sql) {
             AlertUtils.mostrarError("Error al registrar");
         }
+    }
+
+    public void cerrarVentana(ActionEvent event){
+        Node source = (Node) event.getSource();
+        Stage stage = (Stage) source.getScene().getWindow();
+        stage.close();
     }
 
 }
