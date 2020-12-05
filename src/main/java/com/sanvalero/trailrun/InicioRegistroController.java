@@ -3,16 +3,13 @@ package com.sanvalero.trailrun;
 import com.sanvalero.trailrun.dao.InicioDAO;
 import com.sanvalero.trailrun.domain.Usuario;
 import com.sanvalero.trailrun.util.AlertUtils;
-import com.sanvalero.trailrun.util.R;
 import javafx.animation.PauseTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -27,7 +24,8 @@ public class InicioRegistroController {
 
     private final InicioDAO inicioDAO;
 
-    public TextField tfUsuario, tfPassword, tfUsuarioRegistro, tfNombreRegistro, tfEmailRegistro, tfPasswordRegistro;
+    public TextField tfUsuario, tfUsuarioRegistro, tfNombreRegistro, tfEmailRegistro, tfPasswordRegistro;
+    public PasswordField pfPassword;
     public Label lConfirmacionRegistro;
 
     public InicioRegistroController() {
@@ -48,28 +46,17 @@ public class InicioRegistroController {
     public void iniciar(ActionEvent event) {
         int opcion = 0;
         String usuario = tfUsuario.getText();
-        String password = tfPassword.getText();
+        String password = pfPassword.getText();
         Usuario user = new Usuario(usuario, password);
         try {
             opcion = inicioDAO.iniciarSesion(user);
             if (opcion == 1) {
-                FXMLLoader loader = new FXMLLoader();
-                loader.setLocation(R.getUI("trailrun.fxml"));
-                loader.setController(new AppController());
-                VBox vbox = loader.load();
-
-                Scene scene = new Scene(vbox);
-                Stage appStage = new Stage();
-                appStage.setScene(scene);
-                appStage.show();
-
                 cerrarVentana(event);
-
             }
             else {
                 AlertUtils.mostrarError("Usuario y/o password incorrectos");
             }
-        } catch (SQLException | IOException sql) {
+        } catch (SQLException sql) {
             AlertUtils.mostrarError("Error al iniciar sesión");
         } catch (Exception e) {
             e.printStackTrace();

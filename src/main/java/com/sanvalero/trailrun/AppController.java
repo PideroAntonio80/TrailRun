@@ -3,18 +3,24 @@ package com.sanvalero.trailrun;
 import com.sanvalero.trailrun.dao.RaceDAO;
 import com.sanvalero.trailrun.domain.Race;
 import com.sanvalero.trailrun.util.AlertUtils;
+import com.sanvalero.trailrun.util.R;
 import javafx.animation.PauseTransition;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.VBox;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import javafx.stage.FileChooser;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVPrinter;
@@ -89,27 +95,41 @@ public class AppController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        ObservableList<String> listTipo = FXCollections.observableArrayList("<Selecciona Tipo>", "Km Vertical", "Media Distancia", "Gran Distancia", "Ultra");
-        cbTipo.setItems(listTipo);
-        cbTipo.setValue("Selecciona Tipo");
 
-        ObservableList<String> listFDist = FXCollections.observableArrayList("<Selecciona Tipo>", "< 5Km.", "5Km. - 25Km.", "25Km. - 50Km.", "> 50Km.");
-        cbFiltroDistancia.setItems(listFDist);
-        cbFiltroDistancia.setValue("Selecciona Tipo");
-
-        engine = webView.getEngine();
-        engine.load("https://www.ign.es/iberpix2/visor/");
-
-        lAviso.setText("Cargando cartografía, espere unos segundos...");
-        transicionLabelAviso(9);
-
-        btGuardar.setDisable(true);
-        btEliminar.setDisable(true);
-        btModificar.setDisable(true);
 
         try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(R.getUI("registro.fxml"));
+            loader.setController(new InicioRegistroController());
+            VBox vbox = loader.load();
+
+            Scene scene = new Scene(vbox);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.initModality(Modality.WINDOW_MODAL);
+            stage.showAndWait();
+
+            ObservableList<String> listTipo = FXCollections.observableArrayList("<Selecciona Tipo>", "Km Vertical", "Media Distancia", "Gran Distancia", "Ultra");
+            cbTipo.setItems(listTipo);
+            cbTipo.setValue("Selecciona Tipo");
+
+            ObservableList<String> listFDist = FXCollections.observableArrayList("<Selecciona Tipo>", "< 5Km.", "5Km. - 25Km.", "25Km. - 50Km.", "> 50Km.");
+            cbFiltroDistancia.setItems(listFDist);
+            cbFiltroDistancia.setValue("Selecciona Tipo");
+
+            engine = webView.getEngine();
+            engine.load("https://www.ign.es/iberpix2/visor/");
+
+            lAviso.setText("Cargando cartografía, espere unos segundos...");
+            transicionLabelAviso(9);
+
+            btGuardar.setDisable(true);
+            btEliminar.setDisable(true);
+            btModificar.setDisable(true);
+            btRecuperar.setDisable(true);
+
             listarRaces(raceDAO.listarRaces());
-        } catch (SQLException sql) {
+        } catch (SQLException | IOException sql) {
             AlertUtils.mostrarError("Error al cargar los datos");
         }
 
@@ -140,7 +160,7 @@ public class AppController implements Initializable {
         btGuardar.setDisable(true);
         btEliminar.setDisable(false);
         btModificar.setDisable(false);
-        btRecuperar.setDisable(false);
+        //btRecuperar.setDisable(false);
         btCancelar.setDisable(false);
         btBorrarTodo.setDisable(false);
     }
@@ -247,6 +267,7 @@ public class AppController implements Initializable {
             btEliminar.setDisable(true);
             btGuardar.setDisable(true);
             btModificar.setDisable(true);
+            btRecuperar.setDisable(false);
 
             lAviso.setText("Registro eliminado");
             transicionLabelAviso(3);
@@ -381,6 +402,8 @@ public class AppController implements Initializable {
             listarRaces(raceDAO.listarRaces());
             lAviso.setText("Registro recuperado");
             transicionLabelAviso(3);
+
+            btRecuperar.setDisable(true);
 
         } catch (SQLException sql) {
             AlertUtils.mostrarError("Error al recuperar registro");
