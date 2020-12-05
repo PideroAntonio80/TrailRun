@@ -184,4 +184,22 @@ public class RaceDAO extends BaseDAO{
         return lista;
     }
 
+    public void borrarTodo() throws SQLException {
+        String sql = "TRUNCATE TABLE races";
+        PreparedStatement sentencia = conexion.prepareStatement(sql);
+        sentencia.executeUpdate();
+    }
+
+    public boolean existeRace(Race race) throws SQLException {
+        String sql = "SELECT * FROM races WHERE nombre = ? AND lugar = ? AND fecha = ?";
+        PreparedStatement sentencia = conexion.prepareStatement(sql);
+        sentencia.setString(1, race.getNombre());
+        sentencia.setString(2, race.getLugar());
+        sentencia.setDate(3, race.getFecha());
+        ResultSet resultado = sentencia.executeQuery();
+
+        return resultado.next();
+
+    }
+
 }

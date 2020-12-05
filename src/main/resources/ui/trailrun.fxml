@@ -28,7 +28,6 @@
             <SeparatorMenuItem mnemonicParsing="false" />
             <MenuItem mnemonicParsing="false" text="Preferences…" />
             <SeparatorMenuItem mnemonicParsing="false" />
-                  <MenuItem mnemonicParsing="false" onAction="#importar" text="Importar" />
                   <MenuItem fx:id="exportar" mnemonicParsing="false" onAction="#exportar" text="Exportar" />
             <MenuItem mnemonicParsing="false" text="Quit" />
           </items>
@@ -107,22 +106,22 @@
                 <TableColumn fx:id="tcTipo" prefWidth="112.0" text="Tipo" />
               </columns>
             </TableView>
-            <Button layoutX="22.0" layoutY="354.0" mnemonicParsing="false" onAction="#nuevo" prefHeight="25.0" prefWidth="67.0" text="Nuevo">
+            <Button fx:id="btNuevo" layoutX="22.0" layoutY="354.0" mnemonicParsing="false" onAction="#nuevo" prefHeight="25.0" prefWidth="67.0" text="Nuevo">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button layoutX="101.0" layoutY="354.0" mnemonicParsing="false" onAction="#guardar" prefHeight="25.0" prefWidth="67.0" text="Guardar">
+            <Button fx:id="btGuardar" layoutX="101.0" layoutY="354.0" mnemonicParsing="false" onAction="#guardar" prefHeight="25.0" prefWidth="67.0" text="Guardar">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button layoutX="181.0" layoutY="354.0" mnemonicParsing="false" onAction="#modificar" text="Modificar">
+            <Button fx:id="btModificar" layoutX="181.0" layoutY="354.0" mnemonicParsing="false" onAction="#modificar" text="Modificar">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button layoutX="262.0" layoutY="354.0" mnemonicParsing="false" onAction="#eliminar" prefHeight="25.0" prefWidth="67.0" text="Eliminar">
+            <Button fx:id="btEliminar" layoutX="262.0" layoutY="354.0" mnemonicParsing="false" onAction="#eliminar" prefHeight="25.0" prefWidth="67.0" text="Eliminar">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -149,18 +148,21 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Label fx:id="lAviso" layoutX="368.0" layoutY="327.0" prefHeight="19.0" prefWidth="369.0" />
-            <Button layoutX="22.0" layoutY="392.0" mnemonicParsing="false" onAction="#reset" prefHeight="25.0" prefWidth="67.0" text="Reset">
+            <Label fx:id="lAviso" layoutX="368.0" layoutY="327.0" prefHeight="19.0" prefWidth="369.0" textFill="#a90a0a">
+               <font>
+                  <Font name="System Bold Italic" size="14.0" />
+               </font></Label>
+            <Button fx:id="btReset" layoutX="22.0" layoutY="392.0" mnemonicParsing="false" onAction="#reset" prefHeight="25.0" prefWidth="67.0" text="Reset">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button layoutX="101.0" layoutY="392.0" mnemonicParsing="false" onAction="#cancelar" prefHeight="25.0" prefWidth="67.0" text="Cancelar">
+            <Button fx:id="btCancelar" layoutX="101.0" layoutY="392.0" mnemonicParsing="false" onAction="#cancelar" prefHeight="25.0" prefWidth="67.0" text="Cancelar">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button fx:id="btShowAll" layoutX="184.0" layoutY="392.0" mnemonicParsing="false" onAction="#showAll" prefHeight="25.0" prefWidth="67.0" text="Show All">
+            <Button fx:id="btBorrarTodo" layoutX="194.0" layoutY="430.0" mnemonicParsing="false" onAction="#borrarTodo" prefHeight="25.0" prefWidth="119.0" text="Borrar Todo">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -183,7 +185,7 @@
             </Button>
             <TextField fx:id="tfUrl" cache="true" layoutX="24.0" layoutY="668.0" prefHeight="25.0" prefWidth="339.0" />
             <Line endX="368.0" endY="628.0" startY="628.0" />
-            <Line endX="404.0" endY="628.0" layoutX="-36.0" layoutY="-175.0" startX="36.0" startY="628.0" />
+            <Line endX="403.5" endY="637.0" layoutX="-36.0" layoutY="-175.0" startX="42.29289245605469" startY="637.0" />
             <Label layoutX="33.0" layoutY="645.0" prefHeight="17.0" prefWidth="67.0" text="URL">
                <font>
                   <Font name="System Bold" size="12.0" />
@@ -193,7 +195,7 @@
             <Line endX="565.0" layoutX="470.0" layoutY="731.0" startX="-102.0" />
             <Line endX="-107.0" endY="-189.0" layoutX="475.0" layoutY="541.0" startX="-107.0" startY="190.0" />
             <Line endX="124.0" endY="-102.0" layoutX="911.0" layoutY="454.0" startX="124.0" startY="277.0" />
-            <Button layoutX="262.0" layoutY="392.0" mnemonicParsing="false" onAction="#recuperar" prefHeight="25.0" prefWidth="80.0" text="Recuperar">
+            <Button fx:id="btRecuperar" layoutX="193.0" layoutY="392.0" mnemonicParsing="false" onAction="#recuperar" prefHeight="25.0" prefWidth="119.0" text="Recuperar Ultimo">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>

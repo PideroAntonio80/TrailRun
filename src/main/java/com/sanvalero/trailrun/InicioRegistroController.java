@@ -4,6 +4,7 @@ import com.sanvalero.trailrun.dao.InicioDAO;
 import com.sanvalero.trailrun.domain.Usuario;
 import com.sanvalero.trailrun.util.AlertUtils;
 import com.sanvalero.trailrun.util.R;
+import javafx.animation.PauseTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,6 +14,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -90,15 +92,32 @@ public class InicioRegistroController {
             }
             inicioDAO.guardarUsuario(user);
             lConfirmacionRegistro.setText("Usuario registrado");
+            transicionLabelConfirmacion();
+
         } catch (SQLException sql) {
             AlertUtils.mostrarError("Error al registrar");
         }
+    }
+
+    @FXML
+    public void reset(ActionEvent event) {
+        tfUsuarioRegistro.setText("");
+        tfNombreRegistro.setText("");
+        tfEmailRegistro.setText("");
+        tfPasswordRegistro.setText("");
     }
 
     public void cerrarVentana(ActionEvent event){
         Node source = (Node) event.getSource();
         Stage stage = (Stage) source.getScene().getWindow();
         stage.close();
+    }
+
+    public void transicionLabelConfirmacion() {
+        lConfirmacionRegistro.setVisible(true);
+        PauseTransition visiblePause = new PauseTransition((Duration.seconds(3)));
+        visiblePause.setOnFinished(event -> lConfirmacionRegistro.setVisible(false));
+        visiblePause.play();
     }
 
 }
