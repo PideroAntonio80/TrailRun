@@ -5,3 +5,5 @@
 *.jar
 target
 .idea
+database.properties
+
