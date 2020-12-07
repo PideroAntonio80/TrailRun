@@ -7,9 +7,12 @@
 - Filtros de busqueda de los registros
 - Posibilidad de eliminar todos los registros de la BBDD
 - Posibilidad de recuperar el ultimo registro eliminado
+- Carga automatica del buscador de mapas de la web del Instituto Nacional Geografico
+- Posibilidad de cargar otra web distinta 
 - Posibilidad de exportar los datos en ubicacion elegida por el usuario
 - Sistema de autenticacion de usuario para permitir acceso a la app
 - Registro de nuevos usuarios de la app
+
 
 
 
