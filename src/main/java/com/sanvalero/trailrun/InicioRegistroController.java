@@ -54,6 +54,7 @@ public class InicioRegistroController {
                 cerrarVentana(event);
             }
             else {
+
                 AlertUtils.mostrarError("Usuario y/o password incorrectos");
             }
         } catch (SQLException sql) {

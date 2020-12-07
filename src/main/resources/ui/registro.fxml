@@ -24,6 +24,7 @@
                </font>
             </Label>
             <TextField fx:id="tfUsuario" layoutX="83.0" layoutY="171.0" prefHeight="25.0" prefWidth="243.0" />
+            <PasswordField fx:id="pfPassword" layoutX="84.0" layoutY="225.0" prefHeight="25.0" prefWidth="243.0" />
             <Button layoutX="157.0" layoutY="288.0" mnemonicParsing="false" onAction="#iniciar" text="Iniciar">
                <font>
                   <Font name="System Bold" size="12.0" />
@@ -78,7 +79,6 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <PasswordField fx:id="pfPassword" layoutX="84.0" layoutY="225.0" prefHeight="25.0" prefWidth="243.0" />
       </children>
     </AnchorPane>
   </children>

@@ -31,6 +31,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -96,18 +97,7 @@ public class AppController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-
         try {
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(R.getUI("registro.fxml"));
-            loader.setController(new InicioRegistroController());
-            VBox vbox = loader.load();
-
-            Scene scene = new Scene(vbox);
-            Stage stage = new Stage();
-            stage.setScene(scene);
-            stage.initModality(Modality.WINDOW_MODAL);
-            stage.showAndWait();
 
             ObservableList<String> listTipo = FXCollections.observableArrayList("<Selecciona Tipo>", "Km Vertical", "Media Distancia", "Gran Distancia", "Ultra");
             cbTipo.setItems(listTipo);
@@ -129,7 +119,7 @@ public class AppController implements Initializable {
             btRecuperar.setDisable(true);
 
             listarRaces(raceDAO.listarRaces());
-        } catch (SQLException | IOException sql) {
+        } catch (SQLException sql) {
             AlertUtils.mostrarError("Error al cargar los datos");
         }
 
@@ -160,7 +150,6 @@ public class AppController implements Initializable {
         btGuardar.setDisable(true);
         btEliminar.setDisable(false);
         btModificar.setDisable(false);
-        //btRecuperar.setDisable(false);
         btCancelar.setDisable(false);
         btBorrarTodo.setDisable(false);
     }
@@ -173,6 +162,7 @@ public class AppController implements Initializable {
         btEliminar.setDisable(true);
         btModificar.setDisable(true);
         btCancelar.setDisable(false);
+        dpFecha.setValue(LocalDate.now());
     }
 
     @FXML
