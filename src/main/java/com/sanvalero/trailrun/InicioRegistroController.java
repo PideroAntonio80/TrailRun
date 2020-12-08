@@ -30,7 +30,6 @@ public class InicioRegistroController {
 
     public InicioRegistroController() {
         inicioDAO = new InicioDAO();
-
         try {
             inicioDAO.conectar();
         } catch (ClassNotFoundException cnfe) {

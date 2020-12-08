@@ -42,7 +42,7 @@ public class App extends Application {
         stage.setScene(scene2);
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.show();
-
+        stage.setOnCloseRequest(t -> primaryStage.close());
     }
 
     @Override
