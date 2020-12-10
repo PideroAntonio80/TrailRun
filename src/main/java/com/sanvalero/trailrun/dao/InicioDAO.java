@@ -29,7 +29,7 @@ public class InicioDAO extends BaseDAO{
     public int iniciarSesion(Usuario usuario) throws SQLException {
         int opcion = 0;
         String sql = "SELECT usuario, password FROM usuarios WHERE usuario = ? AND password = ?";
-        PreparedStatement sentencia = conexion.prepareStatement(sql);
+        PreparedStatement sentencia =conexion.prepareStatement(sql);
         sentencia.setString(1, usuario.getUsuario());
         sentencia.setString(2, usuario.getPassword());
         ResultSet resultado = sentencia.executeQuery();
