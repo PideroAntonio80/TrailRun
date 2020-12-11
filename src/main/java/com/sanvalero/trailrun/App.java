@@ -1,5 +1,7 @@
 package com.sanvalero.trailrun;
 
+import com.sanvalero.trailrun.controller.AppController;
+import com.sanvalero.trailrun.controller.InicioRegistroController;
 import com.sanvalero.trailrun.util.R;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

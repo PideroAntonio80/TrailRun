@@ -12,13 +12,15 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.InnerShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.web.WebView?>
 
-<VBox prefHeight="767.0" prefWidth="1048.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="767.0" prefWidth="1048.0" style="-fx-background-color: #CDE3F1;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
@@ -55,10 +57,13 @@
     </MenuBar>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="608.0" prefWidth="1002.0" VBox.vgrow="ALWAYS">
       <children>
-            <Label layoutX="52.0" layoutY="24.0" text="TRAIL RUNNING">
+            <Label layoutX="55.0" layoutY="8.0" prefHeight="42.0" prefWidth="253.0" text="TRAIL RUNNING">
                <font>
-                  <Font name="Adventure Normal" size="24.0" />
+                  <Font name="Adventure Normal" size="36.0" />
                </font>
+               <effect>
+                  <DropShadow color="WHITE" height="43.12" radius="15.530000000000001" spread="0.7" />
+               </effect>
             </Label>
             <Label layoutX="37.0" layoutY="70.0" text="Nombre">
                <font>
@@ -90,12 +95,27 @@
                   <Font name="System Bold" size="13.0" />
                </font>
             </Label>
-            <TextField fx:id="tfNombre" layoutX="103.0" layoutY="67.0" prefHeight="25.0" prefWidth="149.0" />
-            <TextField fx:id="tfLugar" layoutX="102.0" layoutY="110.0" prefHeight="25.0" prefWidth="150.0" />
+            <TextField fx:id="tfNombre" layoutX="103.0" layoutY="67.0" prefHeight="25.0" prefWidth="149.0">
+               <effect>
+                  <DropShadow />
+               </effect></TextField>
+            <TextField fx:id="tfLugar" layoutX="102.0" layoutY="110.0" prefHeight="25.0" prefWidth="150.0">
+               <effect>
+                  <DropShadow />
+               </effect></TextField>
             <DatePicker fx:id="dpFecha" layoutX="103.0" layoutY="154.0" prefHeight="25.0" prefWidth="178.0" />
-            <TextField fx:id="tfDistancia" layoutX="102.0" layoutY="200.0" prefHeight="25.0" prefWidth="98.0" />
-            <TextField fx:id="tfDesnivel" layoutX="102.0" layoutY="247.0" prefHeight="25.0" prefWidth="98.0" />
-            <ComboBox fx:id="cbTipo" layoutX="102.0" layoutY="295.0" prefHeight="25.0" prefWidth="150.0" />
+            <TextField fx:id="tfDistancia" layoutX="102.0" layoutY="200.0" prefHeight="25.0" prefWidth="98.0">
+               <effect>
+                  <DropShadow />
+               </effect></TextField>
+            <TextField fx:id="tfDesnivel" layoutX="102.0" layoutY="247.0" prefHeight="25.0" prefWidth="98.0">
+               <effect>
+                  <DropShadow />
+               </effect></TextField>
+            <ComboBox fx:id="cbTipo" layoutX="102.0" layoutY="295.0" prefHeight="25.0" prefWidth="150.0">
+               <effect>
+                  <DropShadow />
+               </effect></ComboBox>
             <TableView fx:id="tvRaces" layoutX="367.0" layoutY="37.0" onMouseClicked="#getDatosTabla" prefHeight="284.0" prefWidth="667.0">
               <columns>
                 <TableColumn fx:id="tcNombre" prefWidth="146.0" text="Nombre" />
@@ -106,33 +126,67 @@
                 <TableColumn fx:id="tcTipo" prefWidth="112.0" text="Tipo" />
               </columns>
             </TableView>
-            <Button fx:id="btNuevo" layoutX="22.0" layoutY="354.0" mnemonicParsing="false" onAction="#nuevo" prefHeight="25.0" prefWidth="67.0" text="Nuevo">
+            <Button fx:id="btNuevo" layoutX="22.0" layoutY="354.0" mnemonicParsing="false" onAction="#nuevo" prefHeight="25.0" prefWidth="67.0" style="-fx-background-color: #1597E8;" text="Nuevo" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
+               <effect>
+                  <DropShadow>
+                     <input>
+                        <InnerShadow />
+                     </input>
+                  </DropShadow>
+               </effect>
             </Button>
-            <Button fx:id="btGuardar" layoutX="101.0" layoutY="354.0" mnemonicParsing="false" onAction="#guardar" prefHeight="25.0" prefWidth="67.0" text="Guardar">
+            <Button fx:id="btGuardar" layoutX="101.0" layoutY="354.0" mnemonicParsing="false" onAction="#guardar" prefHeight="25.0" prefWidth="67.0" style="-fx-background-color: #1597E8;" text="Guardar" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
+               <effect>
+                  <DropShadow>
+                     <input>
+                        <InnerShadow />
+                     </input>
+                  </DropShadow>
+               </effect>
             </Button>
-            <Button fx:id="btModificar" layoutX="181.0" layoutY="354.0" mnemonicParsing="false" onAction="#modificar" text="Modificar">
+            <Button fx:id="btModificar" layoutX="181.0" layoutY="354.0" mnemonicParsing="false" onAction="#modificar" style="-fx-background-color: #1597E8;" text="Modificar" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
+               <effect>
+                  <DropShadow>
+                     <input>
+                        <InnerShadow />
+                     </input>
+                  </DropShadow>
+               </effect>
             </Button>
-            <Button fx:id="btEliminar" layoutX="262.0" layoutY="354.0" mnemonicParsing="false" onAction="#eliminar" prefHeight="25.0" prefWidth="67.0" text="Eliminar">
+            <Button fx:id="btEliminar" layoutX="262.0" layoutY="354.0" mnemonicParsing="false" onAction="#eliminar" prefHeight="25.0" prefWidth="67.0" style="-fx-background-color: #F15F1F;" text="Eliminar" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
+               <effect>
+                  <DropShadow>
+                     <input>
+                        <InnerShadow />
+                     </input>
+                  </DropShadow>
+               </effect>
             </Button>
             <Label layoutX="34.0" layoutY="470.0" prefHeight="19.0" prefWidth="119.0" text="Filtro de Busqueda">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
             </Label>
-            <TextField fx:id="tfFiltroLugar" layoutX="129.0" layoutY="500.0" />
-            <ComboBox fx:id="cbFiltroDistancia" layoutX="128.0" layoutY="537.0" prefWidth="150.0" />
+            <TextField fx:id="tfFiltroLugar" layoutX="129.0" layoutY="500.0">
+               <effect>
+                  <DropShadow />
+               </effect></TextField>
+            <ComboBox fx:id="cbFiltroDistancia" layoutX="128.0" layoutY="537.0" prefWidth="150.0">
+               <effect>
+                  <DropShadow />
+               </effect></ComboBox>
             <Label layoutX="203.0" layoutY="205.0" text="Metros">
                <font>
                   <Font name="System Bold Italic" size="12.0" />
@@ -143,29 +197,57 @@
                   <Font name="System Bold Italic" size="12.0" />
                </font>
             </Label>
-            <Button layoutX="34.0" layoutY="586.0" mnemonicParsing="false" onAction="#filtrar" text="Filtrar">
+            <Button layoutX="34.0" layoutY="586.0" mnemonicParsing="false" onAction="#filtrar" style="-fx-background-color: #1597E8;" text="Filtrar" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
+               <effect>
+                  <DropShadow>
+                     <input>
+                        <InnerShadow />
+                     </input>
+                  </DropShadow>
+               </effect>
             </Button>
             <Label fx:id="lAviso" layoutX="368.0" layoutY="327.0" prefHeight="19.0" prefWidth="369.0" textFill="#a90a0a">
                <font>
                   <Font name="System Bold Italic" size="14.0" />
                </font></Label>
-            <Button fx:id="btReset" layoutX="22.0" layoutY="392.0" mnemonicParsing="false" onAction="#reset" prefHeight="25.0" prefWidth="67.0" text="Reset">
+            <Button fx:id="btReset" layoutX="22.0" layoutY="392.0" mnemonicParsing="false" onAction="#reset" prefHeight="25.0" prefWidth="67.0" style="-fx-background-color: #1597E8;" text="Reset" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
+               <effect>
+                  <DropShadow color="WHITE" height="15.06" radius="8.515" spread="0.4">
+                     <input>
+                        <InnerShadow />
+                     </input>
+                  </DropShadow>
+               </effect>
             </Button>
-            <Button fx:id="btCancelar" layoutX="101.0" layoutY="392.0" mnemonicParsing="false" onAction="#cancelar" prefHeight="25.0" prefWidth="67.0" text="Cancelar">
+            <Button fx:id="btCancelar" layoutX="101.0" layoutY="392.0" mnemonicParsing="false" onAction="#cancelar" prefHeight="25.0" prefWidth="67.0" style="-fx-background-color: #1597E8;" text="Cancelar" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
+               <effect>
+                  <DropShadow>
+                     <input>
+                        <InnerShadow />
+                     </input>
+                  </DropShadow>
+               </effect>
             </Button>
-            <Button fx:id="btBorrarTodo" layoutX="194.0" layoutY="430.0" mnemonicParsing="false" onAction="#borrarTodo" prefHeight="25.0" prefWidth="119.0" text="Borrar Todo">
+            <Button fx:id="btBorrarTodo" layoutX="194.0" layoutY="430.0" mnemonicParsing="false" onAction="#borrarTodo" prefHeight="25.0" prefWidth="119.0" style="-fx-background-color: #F15F1F;" text="Borrar Todo" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
+               <effect>
+                  <DropShadow>
+                     <input>
+                        <InnerShadow />
+                     </input>
+                  </DropShadow>
+               </effect>
             </Button>
             <CheckBox fx:id="chbLugar" layoutX="37.0" layoutY="504.0" mnemonicParsing="false" text="Lugar">
                <font>
@@ -178,12 +260,22 @@
                </font>
             </CheckBox>
             <WebView fx:id="webView" layoutX="368.0" layoutY="352.0" prefHeight="379.0" prefWidth="667.0" />
-            <Button layoutX="25.0" layoutY="703.0" mnemonicParsing="false" onAction="#cargarMapa" prefHeight="25.0" prefWidth="54.0" text="Cargar">
+            <Button layoutX="25.0" layoutY="703.0" mnemonicParsing="false" onAction="#cargarMapa" prefHeight="25.0" prefWidth="54.0" style="-fx-background-color: #1597E8;" text="Cargar" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
+               <effect>
+                  <DropShadow>
+                     <input>
+                        <InnerShadow />
+                     </input>
+                  </DropShadow>
+               </effect>
             </Button>
-            <TextField fx:id="tfUrl" cache="true" layoutX="24.0" layoutY="668.0" prefHeight="25.0" prefWidth="339.0" />
+            <TextField fx:id="tfUrl" cache="true" layoutX="24.0" layoutY="668.0" prefHeight="25.0" prefWidth="339.0">
+               <effect>
+                  <DropShadow />
+               </effect></TextField>
             <Line endX="368.0" endY="628.0" startY="628.0" />
             <Line endX="403.5" endY="637.0" layoutX="-36.0" layoutY="-175.0" startX="42.29289245605469" startY="637.0" />
             <Label layoutX="33.0" layoutY="645.0" prefHeight="17.0" prefWidth="67.0" text="URL">
@@ -195,10 +287,17 @@
             <Line endX="565.0" layoutX="470.0" layoutY="731.0" startX="-102.0" />
             <Line endX="-107.0" endY="-189.0" layoutX="475.0" layoutY="541.0" startX="-107.0" startY="190.0" />
             <Line endX="124.0" endY="-102.0" layoutX="911.0" layoutY="454.0" startX="124.0" startY="277.0" />
-            <Button fx:id="btRecuperar" layoutX="193.0" layoutY="392.0" mnemonicParsing="false" onAction="#recuperar" prefHeight="25.0" prefWidth="119.0" text="Recuperar Ultimo">
+            <Button fx:id="btRecuperar" layoutX="193.0" layoutY="392.0" mnemonicParsing="false" onAction="#recuperar" prefHeight="25.0" prefWidth="119.0" style="-fx-background-color: #1597E8;" text="Recuperar Ultimo" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
+               <effect>
+                  <DropShadow>
+                     <input>
+                        <InnerShadow />
+                     </input>
+                  </DropShadow>
+               </effect>
             </Button>
       </children>
     </AnchorPane>

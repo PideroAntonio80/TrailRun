@@ -1,4 +1,4 @@
-package com.sanvalero.trailrun;
+package com.sanvalero.trailrun.controller;
 
 import com.sanvalero.trailrun.dao.InicioDAO;
 import com.sanvalero.trailrun.domain.Usuario;

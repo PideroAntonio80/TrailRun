@@ -4,12 +4,14 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.InnerShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="485.0" prefWidth="765.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="485.0" prefWidth="765.0" style="-fx-background-color: #E1CEA7;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="343.0" prefWidth="579.0" VBox.vgrow="ALWAYS">
       <children>
@@ -23,61 +25,98 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <TextField fx:id="tfUsuario" layoutX="83.0" layoutY="171.0" prefHeight="25.0" prefWidth="243.0" />
-            <PasswordField fx:id="pfPassword" layoutX="84.0" layoutY="225.0" prefHeight="25.0" prefWidth="243.0" />
-            <Button layoutX="157.0" layoutY="288.0" mnemonicParsing="false" onAction="#iniciar" text="Iniciar">
+            <TextField fx:id="tfUsuario" layoutX="83.0" layoutY="171.0" prefHeight="25.0" prefWidth="243.0">
+               <effect>
+                  <DropShadow />
+               </effect></TextField>
+            <PasswordField fx:id="pfPassword" layoutX="84.0" layoutY="225.0" prefHeight="25.0" prefWidth="243.0">
+               <effect>
+                  <DropShadow />
+               </effect></PasswordField>
+            <Button layoutX="157.0" layoutY="288.0" mnemonicParsing="false" onAction="#iniciar" style="-fx-background-color: #1597E8;" text="Iniciar" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
+               <effect>
+                  <InnerShadow />
+               </effect>
             </Button>
-            <Label layoutX="115.0" layoutY="69.0" text="INICIAR SESIÓN">
+            <Label layoutX="100.0" layoutY="69.0" text="INICIAR SESIÓN">
                <font>
-                  <Font name="System Bold" size="18.0" />
+                  <Font name="System Bold" size="24.0" />
                </font>
+               <effect>
+                  <DropShadow color="#ebe4e4" height="12.1" radius="2.525" spread="1.0" width="0.0" />
+               </effect>
             </Label>
             <Label layoutX="434.0" layoutY="176.0" text="Usuario">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <TextField fx:id="tfUsuarioRegistro" layoutX="497.0" layoutY="172.0" prefHeight="25.0" prefWidth="243.0" />
+            <TextField fx:id="tfUsuarioRegistro" layoutX="497.0" layoutY="172.0" prefHeight="25.0" prefWidth="243.0">
+               <effect>
+                  <DropShadow />
+               </effect></TextField>
             <Label layoutX="509.0" layoutY="69.0" text="REGISTRARSE">
                <font>
-                  <Font name="System Bold" size="18.0" />
+                  <Font name="System Bold" size="24.0" />
                </font>
+               <effect>
+                  <DropShadow color="#ebe4e4" height="12.1" radius="2.525" spread="1.0" width="0.0" />
+               </effect>
             </Label>
             <Label layoutX="434.0" layoutY="231.0" text="Nombre">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <TextField fx:id="tfNombreRegistro" layoutX="497.0" layoutY="227.0" prefHeight="25.0" prefWidth="243.0" />
+            <TextField fx:id="tfNombreRegistro" layoutX="497.0" layoutY="227.0" prefHeight="25.0" prefWidth="243.0">
+               <effect>
+                  <DropShadow />
+               </effect></TextField>
             <Label layoutX="434.0" layoutY="288.0" text="Email">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <TextField fx:id="tfEmailRegistro" layoutX="497.0" layoutY="284.0" prefHeight="25.0" prefWidth="243.0" />
+            <TextField fx:id="tfEmailRegistro" layoutX="497.0" layoutY="284.0" prefHeight="25.0" prefWidth="243.0">
+               <effect>
+                  <DropShadow />
+               </effect></TextField>
               <Label layoutX="434.0" layoutY="346.0" text="Password">
                   <font>
                       <Font name="System Bold" size="12.0" />
                   </font>
               </Label>
-          <TextField fx:id="tfPasswordRegistro" layoutX="497.0" layoutY="342.0" prefHeight="25.0" prefWidth="243.0" />
-            <Button layoutX="537.0" layoutY="405.0" mnemonicParsing="false" onAction="#enviar" prefHeight="25.0" prefWidth="60.0" text="Enviar">
+          <TextField fx:id="tfPasswordRegistro" layoutX="497.0" layoutY="342.0" prefHeight="25.0" prefWidth="243.0">
+               <effect>
+                  <DropShadow />
+               </effect></TextField>
+            <Button layoutX="537.0" layoutY="405.0" mnemonicParsing="false" onAction="#enviar" prefHeight="25.0" prefWidth="60.0" style="-fx-background-color: #1597E8;" text="Enviar" textFill="WHITE">
                 <font>
                     <Font name="System Bold" size="12.0" />
                 </font>
+               <effect>
+                  <InnerShadow />
+               </effect>
             </Button>
             <Line endX="-0.5" endY="350.0" layoutX="383.0" layoutY="135.0" startX="-0.5" startY="-135.0" />
             <Label fx:id="lConfirmacionRegistro" layoutX="434.0" layoutY="447.0" prefHeight="25.0" prefWidth="305.0" textFill="#dd2626">
                <font>
                   <Font name="System Bold Italic" size="14.0" />
                </font></Label>
-            <Button layoutX="619.0" layoutY="405.0" mnemonicParsing="false" onAction="#reset" prefHeight="25.0" prefWidth="60.0" text="Reset">
+            <Button layoutX="619.0" layoutY="405.0" mnemonicParsing="false" onAction="#reset" prefHeight="25.0" prefWidth="60.0" style="-fx-background-color: #049BF9;" text="Reset" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
+               <effect>
+                  <DropShadow color="WHITE" height="11.86" radius="5.49" spread="0.53" width="12.1">
+                     <input>
+                        <InnerShadow />
+                     </input>
+                  </DropShadow>
+               </effect>
             </Button>
       </children>
     </AnchorPane>

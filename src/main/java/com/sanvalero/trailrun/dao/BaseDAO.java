@@ -25,6 +25,7 @@ public class BaseDAO {
         String name = configuration.getProperty("name");
         String username = configuration.getProperty("username");
         String password = configuration.getProperty("password");
+        //String driver = configuration.getProperty("drivermysql"); <--- ?????
 
         Class.forName("com.mysql.cj.jdbc.Driver"); /* <--- Busco en MVNrepository (en internet),
                                                         copio el xml de mysql connector y lo pego en el POM*/
